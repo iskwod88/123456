@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.sdu.java.server.mapper.CourseMapper">
+
+    <select id="searchCourses" resultType="cn.edu.sdu.java.server.models.po.Course">
+        SELECT *
+        FROM course
+        WHERE (#{keyword} IS NULL OR name LIKE CONCAT('%', #{keyword}, '%') OR num LIKE CONCAT('%', #{keyword}, '%'))
+          AND (#{term} IS NULL OR term = #{term})
+          AND (#{type} IS NULL OR type = #{type})
+    </select>
+
+    <select id="getCourseById" resultType="cn.edu.sdu.java.server.models.po.Course">
+        SELECT * FROM course WHERE course_id = #{courseId}
+    </select>
+
+    <select id="getAllCourses" resultType="cn.edu.sdu.java.server.models.po.Course">
+        SELECT * FROM course
+    </select>
+
+</mapper>

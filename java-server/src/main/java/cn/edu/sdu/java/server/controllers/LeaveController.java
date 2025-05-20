@@ -1,8 +1,10 @@
 package cn.edu.sdu.java.server.controllers;
 
-import cn.edu.sdu.java.server.models.Leave;
+import cn.edu.sdu.java.server.models.po.Leave;
+import cn.edu.sdu.java.server.payload.response.DataResponse;
 import cn.edu.sdu.java.server.services.LeaveService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,14 +29,14 @@ public class LeaveController {
     }
 
     // 新增请假记录
-    @PostMapping
-    public Leave createLeave(@RequestBody Leave leave) {
+    @PostMapping("/add")
+    public DataResponse createLeave(@RequestBody Leave leave) {
         return leaveService.saveLeave(leave);
     }
 
     // 更新请假记录
     @PutMapping("/{id}")
-    public Leave updateLeave(@PathVariable Integer id, @RequestBody Leave leaveDetails) {
+    public DataResponse updateLeave(@PathVariable Integer id, @RequestBody Leave leaveDetails) {
         Leave leave = leaveService.getLeaveById(id).orElse(null);
         if (leave != null) {
             leave.setTime(leaveDetails.getTime());
@@ -50,5 +52,23 @@ public class LeaveController {
     @DeleteMapping("/{id}")
     public void deleteLeave(@PathVariable Integer id) {
         leaveService.deleteLeave(id);
+    }
+
+    // 审批请假
+    @PutMapping("/{id}/approve")
+    @PreAuthorize("hasRole('ADMIN')")
+    public DataResponse approveLeave(@PathVariable Integer id) {
+        return leaveService.approveLeave(id);
+    }
+
+    /**
+     * 拒绝请假
+     * @param id
+     * @return
+     */
+    @PutMapping("/{id}/reject")
+    @PreAuthorize("hasRole('ADMIN')")
+    public DataResponse rejectLeave(@PathVariable Integer id) {
+        return leaveService.rejectLeave(id);
     }
 }

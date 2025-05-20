@@ -1,6 +1,6 @@
 package cn.edu.sdu.java.server.services;
-
-import cn.edu.sdu.java.server.models.User;
+//加载用户信息并封装成 UserDetails对象可以让springsecurity识别
+import cn.edu.sdu.java.server.models.po.User;
 import cn.edu.sdu.java.server.repositorys.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
+    //查询用户信息
     @Autowired
     UserRepository userRepository;
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.sdu.java.server.mapper.CourseSelectionMapper">
+    <select id="hasSelected" resultType="boolean">
+        SELECT COUNT(*) > 0 FROM course_reg
+        WHERE student_id = #{userId} AND course_id = #{courseId}
+    </select>
+
+    <insert id="insertSelection">
+        INSERT INTO course_reg (student_id, course_id)
+        VALUES (#{userId}, #{courseId})
+    </insert>
+
+    <delete id="deleteSelection">
+        DELETE FROM course_reg
+        WHERE student_id = #{userId} AND course_id = #{courseId}
+    </delete>
+
+    <select id="getSelectedCourses" resultType="cn.edu.sdu.java.server.models.po.Course">
+        SELECT c.*
+        FROM course c
+        JOIN course_reg cs ON c.course_id = cs.course_id
+        WHERE cs.student_id = #{userId}
+    </select>
+</mapper>

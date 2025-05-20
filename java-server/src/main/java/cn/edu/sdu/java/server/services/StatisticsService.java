@@ -1,6 +1,6 @@
 package cn.edu.sdu.java.server.services;
 
-import cn.edu.sdu.java.server.models.StatisticsDay;
+import cn.edu.sdu.java.server.models.po.StatisticsDay;
 import cn.edu.sdu.java.server.payload.request.DataRequest;
 import cn.edu.sdu.java.server.payload.response.DataResponse;
 import cn.edu.sdu.java.server.repositorys.StatisticsDayRepository;

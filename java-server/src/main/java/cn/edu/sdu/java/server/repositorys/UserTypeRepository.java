@@ -1,7 +1,7 @@
 package cn.edu.sdu.java.server.repositorys;
 
-import cn.edu.sdu.java.server.models.EUserType;
-import cn.edu.sdu.java.server.models.UserType;
+import cn.edu.sdu.java.server.models.po.EUserType;
+import cn.edu.sdu.java.server.models.po.UserType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

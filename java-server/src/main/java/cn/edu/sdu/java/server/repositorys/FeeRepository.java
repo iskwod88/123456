@@ -1,6 +1,6 @@
 package cn.edu.sdu.java.server.repositorys;
 
-import cn.edu.sdu.java.server.models.Fee;
+import cn.edu.sdu.java.server.models.po.Fee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

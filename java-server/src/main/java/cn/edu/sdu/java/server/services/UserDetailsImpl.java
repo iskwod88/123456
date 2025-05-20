@@ -1,6 +1,6 @@
 package cn.edu.sdu.java.server.services;
 
-import cn.edu.sdu.java.server.models.User;
+import cn.edu.sdu.java.server.models.po.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
@@ -38,7 +38,7 @@ public class UserDetailsImpl implements UserDetails {
 
     public static UserDetailsImpl build(User user) {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(user.getUserType().getName()));
+        authorities.add(new SimpleGrantedAuthority("ROLE_" +user.getUserType().getName()));
 
         return new UserDetailsImpl(
                 user.getPersonId(),

@@ -1,9 +1,9 @@
 package cn.edu.sdu.java.server.services;
 
-import cn.edu.sdu.java.server.models.DictionaryInfo;
-import cn.edu.sdu.java.server.models.MenuInfo;
-import cn.edu.sdu.java.server.models.User;
-import cn.edu.sdu.java.server.models.UserType;
+import cn.edu.sdu.java.server.models.po.DictionaryInfo;
+import cn.edu.sdu.java.server.models.po.MenuInfo;
+import cn.edu.sdu.java.server.models.po.User;
+import cn.edu.sdu.java.server.models.po.UserType;
 import cn.edu.sdu.java.server.payload.request.DataRequest;
 import cn.edu.sdu.java.server.payload.response.DataResponse;
 import cn.edu.sdu.java.server.payload.response.MyTreeNode;

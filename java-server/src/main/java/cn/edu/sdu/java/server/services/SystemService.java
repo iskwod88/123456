@@ -1,8 +1,8 @@
 package cn.edu.sdu.java.server.services;
 
-import cn.edu.sdu.java.server.models.DictionaryInfo;
-import cn.edu.sdu.java.server.models.ModifyLog;
-import cn.edu.sdu.java.server.models.SystemInfo;
+import cn.edu.sdu.java.server.models.po.DictionaryInfo;
+import cn.edu.sdu.java.server.models.po.ModifyLog;
+import cn.edu.sdu.java.server.models.po.SystemInfo;
 import cn.edu.sdu.java.server.payload.response.OptionItem;
 import cn.edu.sdu.java.server.repositorys.DictionaryInfoRepository;
 import cn.edu.sdu.java.server.repositorys.ModifyLogRepository;
